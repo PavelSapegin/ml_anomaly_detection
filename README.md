@@ -58,7 +58,7 @@ Semi-supervised схема разбиения (см. таблицу выше). �
 
 ### Baseline
 
-Простая эвристика: $anomaly_score = \sum{|scaled_features|}$ по топ-4 признакам из EDA (V17, V14, V12, V10).
+Простая эвристика: $anomaly\_score = \sum{|scaled\_features|}$ по топ-4 признакам из EDA (V17, V14, V12, V10).
 
 **Результат: PR-AUC = 0.739** на val.
 
