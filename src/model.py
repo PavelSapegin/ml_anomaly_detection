@@ -1,3 +1,6 @@
+from pathlib import Path
+
+import torch
 import torch.nn as nn
 
 
@@ -24,3 +27,12 @@ class Autoencoder(nn.Module):
         decoded = self.decoder(x)
 
         return decoded
+
+
+def load_model(weights_path: Path, input_dim: int, latent_dim: int) -> Autoencoder:
+    autoencoder = Autoencoder(input_dim, latent_dim)
+    state_dict = torch.load(weights_path, map_location="cpu")
+    autoencoder.load_state_dict(state_dict)
+    autoencoder.eval()
+
+    return autoencoder
