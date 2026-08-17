@@ -1,5 +1,6 @@
 import os
 import shutil
+from pathlib import Path
 
 import kagglehub
 
@@ -8,8 +9,8 @@ def main() -> None:
     # Download latest version
     path = kagglehub.dataset_download("mlg-ulb/creditcardfraud")
 
-    target_dir = "./data"
-    os.makedirs(target_dir, exist_ok=True)
+    target_dir = Path("./data/raw")
+    target_dir.mkdir(parents=True, exist_ok=True)
 
     for file_name in os.listdir(path):
         full_file_name = os.path.join(path, file_name)
