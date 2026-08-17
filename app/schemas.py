@@ -34,20 +34,17 @@ class Transaction(BaseModel):
     V28: float
     Amount: float = Field(ge=0)
 
-class PredictionResponse(BaseModel):
 
+class PredictionResponse(BaseModel):
     transaction_id: int | None
     is_fraud: bool = Field(description="Flag - transaction is fraud")
-    anomaly_score: float = Field(description="Autoencoder's " \
-    "anomaly score")
-    threshold: float = Field(
-        description="Threshold, which used for anomaly detection"
-    )
+    anomaly_score: float = Field(description="Autoencoder's anomaly score")
+    threshold: float = Field(description="Threshold, which used for anomaly detection")
 
 
 class BatchRequest(BaseModel):
     transactions: list[Transaction]
 
+
 class BatchResponse(BaseModel):
     responses: list[PredictionResponse]
-
