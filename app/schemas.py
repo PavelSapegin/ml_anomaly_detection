@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field
 
 
 class Transaction(BaseModel):
-    transaction_id: int | None
+    transaction_id: int | None = None
     Time: int = Field(ge=0)
     V1: float
     V2: float
