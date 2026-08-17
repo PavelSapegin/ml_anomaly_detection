@@ -24,8 +24,9 @@ module = [
     "sklearn.*",
     "numpy",
     "torch",
+    "torch.*",
     "pydantic",
-    "pydantic-settings",
+    "pydantic_settings",
     "fastapi",
     "kagglehub",
     "pandas"
