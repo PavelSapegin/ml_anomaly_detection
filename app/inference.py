@@ -15,7 +15,7 @@ def predict_batch(
 ) -> list[PredictionResponse]:
 
     features_df = pd.DataFrame([t.model_dump() for t in transactions])
-    ids = ids = (
+    ids = (
         features_df.pop("transaction_id")
         if "transaction_id" in features_df.columns
         else pd.Series([None] * len(transactions))
