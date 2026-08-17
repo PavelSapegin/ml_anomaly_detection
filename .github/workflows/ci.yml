@@ -38,7 +38,6 @@ jobs:
                 PY_FILES="$(git ls-files '*.py' '*.pyi')"
                 if [ -n "$PY_FILES" ]; then
                   mypy --install-types --non-interactive $PY_FILES
-                  mypy $PY_FILES
                 else
                   echo "No Python files found for mypy."
                 fi

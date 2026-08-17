@@ -1,0 +1,25 @@
+import os
+import shutil
+from pathlib import Path
+
+import kagglehub
+
+
+def main() -> None:
+    # Download latest version
+    path = kagglehub.dataset_download("mlg-ulb/creditcardfraud")
+
+    target_dir = Path("./data/raw")
+    target_dir.mkdir(parents=True, exist_ok=True)
+
+    for file_name in os.listdir(path):
+        full_file_name = os.path.join(path, file_name)
+
+        if os.path.isfile(full_file_name):
+            shutil.copy(full_file_name, target_dir)
+
+    print(f"Files copied to {os.path.abspath(target_dir)}")
+
+
+if __name__ == "__main__":
+    main()
