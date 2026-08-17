@@ -153,7 +153,7 @@ Semi-supervised схема разбиения (см. таблицу выше). �
 - `Amount` -> `log1p(Amount)` (сильно искаженное распределение -> логарифмирование), исходный `Amount` удалён.
 - `V1...V28` + `Amount_log` -> `RobustScaler` (устойчив к выбросам за счёт медианы/IQR вместо mean/std — в данных остаются легитимные экстремумы, которые не хотим "давить" как шум).
 - Единый `ColumnTransformer`, обучен (`fit`) **только на train**, применён (`transform`) к val/test без переобучения — защита от data leakage.
-- Артефакты: `X_{train,val,test}.csv`, `y_{val,test}.csv`, `models/column_transformer.pkl`.
+- Артефакты: `X_{train,val,test}.csv`, `y_{val,test}.csv`, `models/preprocessing_pipeline.joblib`.
 
 ### Baseline
 
