@@ -23,7 +23,7 @@ def predict(request: BatchRequest):
         raise HTTPException(
             status_code=400,
             detail=f"Preprocessing/inference error:\
-                            {str(e)}",
-        )
+                            {e}",
+        ) from e
 
     return BatchResponse(responses=responses)
