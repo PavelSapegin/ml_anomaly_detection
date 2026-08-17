@@ -22,8 +22,9 @@ def predict(request: BatchRequest):
     except (KeyError, ValueError) as e:
         raise HTTPException(
             status_code=400,
-            detail=f"Preprocessing/inference error:\
-                            {e}",
+            detail=
+            "Preprocessing/inference error: "
+            f"{e}",
         ) from e
 
     return BatchResponse(responses=responses)
